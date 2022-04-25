@@ -61,7 +61,7 @@ class EmpruntController extends Controller
         $exemplaire->save();
 
         $book =Book::find($exemplaire->book_id);
-        if($exemplaire->nombre_exemplaires == 0) {
+        if($book->examplaire->nombre_exemplaires == 0) {
             $book->status = 0; // 0 veut dire que le livre n'est pas disponible
         } else {
             $book->status = 1; //1 veut dire que le livre est disponible
