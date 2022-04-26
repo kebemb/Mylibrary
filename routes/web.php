@@ -20,8 +20,8 @@ use App\Http\Controllers\CategoryController;
 //     return view('welcome');
 // });
 
-Route::get('/', [MainController::class, 'home'])->name('home');
-Route::get('/categories', [MainController::class, 'index'])->name('categories');
+Route::get('/', [MainController::class, 'index'])->name('home');
+//Route::get('/categories', [MainController::class, 'index'])->name('categories');
 
 Auth::routes();
 
