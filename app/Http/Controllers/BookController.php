@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Author;
+use App\Models\Category;
 use App\Http\Requests\StoreBookRequest;
 
 class BookController extends Controller
@@ -33,7 +34,8 @@ class BookController extends Controller
     {
         //
         $authors = Author::all();
-        return view('book.create', compact('authors'));
+        $nomcategories = Category::all();
+        return view('book.create', compact('authors','nomcategories'));
     }
 
     /**
@@ -42,22 +44,26 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBookRequest $request)
+    public function store(Request $request)
     {
         //
-        $validated = $request->validated();
+        // $validated = $request->validated();
         $book = new Book;
         $book->title = $request->title;
         $book->description= $request->description;
         $book->year_publication = $request->year_publication;
         $book->edition_home = $request->edition_home;
         $book->edition_date = $request->edition_date;
-        if ($request->hasFile('image')){
+
+        $book->image = $request->input('image');
+        
+        if ($book->image = $request->hasFile('image')){
             $book->image = $request->file('image')->store('images/books');
         }
 
+        $book->category_id = $request->category_id;
         $book->save();
-        return redirect()->route('book.index')->with('info', 'Livre sauvegardé avec succès');
+        return redirect()->route('books.index')->with('info', 'Livre sauvegardé avec succès');
     }
 
     /**
@@ -79,7 +85,8 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('book.edit', compact('book'));
+        $nomcategories = Category::all();
+        return view('book.edit', compact('book','nomcategories'));
     }
 
     /**
@@ -102,23 +109,24 @@ class BookController extends Controller
         }
 
         $book->save();
-        return redirect()->route('book.index')->with('info', 'Livre sauvegardé avec succès');
+        return redirect()->route('books.index')->with('info', 'Livre sauvegardé avec succès');
     }
     
 
     public function book_author(Request $request, Book $book, Author $author)
     {
         $book->author->save();
-        return redirect()->route('book.index')->with('info', 'Informations du livre sauvegardées avec succès');
+        return redirect()->route('books.index')->with('info', 'Informations du livre sauvegardées avec succès');
     }
-    /**
+    /** 
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Book $book)
     {
-        //
+        $book->delete();
+        return redirect()->route('books.index')->with('warning', "Le livre a été supprimé!");
     }
 }

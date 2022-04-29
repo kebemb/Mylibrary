@@ -38,9 +38,19 @@ class StudentController extends Controller
      * @param  \App\Http\Requests\StoreStudentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStudentRequest $request)
+    public function store(Request $request)
     {
-        student::create($request->validated());
+        // student::create($request->validated());
+        $student = new Student;
+        $student->first_name = $request->first_name;
+        $student->last_name = $request->last_name;
+        $student->address = $request->address;
+        $student->gender = $request->gender;
+        $student->class = $request->class;
+        $student->age = $request->age;
+        $student->phone = $request->phone;
+        $student->email = $request->email;
+        $student->save();
 
         return redirect()->route('students')->with('info', 'Etudiant crée avec succès');
     }
@@ -76,11 +86,12 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateStudentRequest $request, Student $student)
+    public function update(Request $request, Student $student)
     {
-        $request->validated();
+        // $request->validated();
 
-        $student->name = $request->name;
+        $student->first_name = $request->first_name;
+        $student->last_name = $request->last_name;
         $student->address = $request->address;
         $student->gender = $request->gender;
         $student->class = $request->class;
@@ -100,7 +111,9 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        student::find($id)->delete();
+        // student::find($id)->delete();
+        $student->delete();
         return redirect()->route('students')->with('info', 'Etudiant supprimé avec succès');
+
     }
 }

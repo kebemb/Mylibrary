@@ -9,6 +9,16 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'image',
+        'year_publication',
+        'edition_home',
+        'edition_date',
+        'category_id'
+    ];
+
      /**
      * Get the auther that owns the book
      *
