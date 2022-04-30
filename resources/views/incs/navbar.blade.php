@@ -86,7 +86,7 @@
                         @if (Auth::user())
                           @if (Auth::user()->role === 'ADMIN')
                         
-                            <a class="nav-item nav-link" href="{{ route('categories.index')}}">Espace Admin</a>
+                            <a class="nav-item nav-link" href="{{ route('dashboard')}}">Espace Admin</a>
                     
                           @endif
                       

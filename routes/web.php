@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::get('/', [MainController::class, 'index'])->name('home');
 //Route::get('/categories', [MainController::class, 'index'])->name('categories');
 
 Auth::routes();
+
+//Routes admin
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware('admin')->name('dashboard');
 
 Route::get('/admin/categories', [CategoryController::class, 'index'])->middleware('admin')->name('categories.index');
 Route::get('/admin/categories/create', [CategoryController::class, 'create'])->middleware('admin')->name('categories.create');
