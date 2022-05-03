@@ -54,3 +54,10 @@ Route::post('/admin/students/store', [StudentController::class, 'store'])->middl
 Route::delete('/admin/students/{student:id}/delete', [StudentController::class, 'destroy'])->middleware('admin')->name('students.delete');
 Route::get('/admin/students/{student:id}/edit', [StudentController::class, 'edit'])->middleware('admin')->name('students.edit');
 Route::put('/admin/students/{student:id}/update', [StudentController::class, 'update'])->middleware('admin')->name('students.update');
+
+
+ //Recherche book
+ Route::get('/books/{category:id}/recherche', [MainController::class, 'recherche'])->name('book.recherche');
+
+//detail
+Route::get('/books/detail/{book:id}/', [MainController::class, 'detail'])->name('book.detail');

@@ -26,7 +26,7 @@
 
     <div class="row align-items-center py-1 px-xl-3">
         <div class="col-lg-3 d-none d-lg-block">
-            <a href="" class="text-decoration-none">
+            <a href="{{route('home')}}"  class="text-decoration-none">
                 <h3 class="m-0 display-5 font-weight-semi-bold"><span class="text-white font-weight-bold border px-3 mr-1">My</span>library</h3>
             </a>
         </div>
@@ -63,9 +63,12 @@
             </a>
             <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                 <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+
+                
                     @foreach (\App\Models\Category::all() as $category)
-                        <a href="" class="nav-item nav-link">{{$category->name}}</a>
+                        <a href="{{ route('book.recherche', $category->id) }}" name="recherche" class="nav-item nav-link">{{$category->name}}</a>
                     @endforeach
+                
                 </div>
             </nav>
         </div>
@@ -122,6 +125,16 @@
                             <div class="p-3" style="max-width: 700px;">
                                 <h4 class="text-light text-uppercase font-weight-medium mb-3">Le numérique au service</h4>
                                 <h3 class="display-4 text-white font-weight-semi-bold mb-4">de la jeunesse</h3>
+                                <a href="" class="btn btn-light py-2 px-3">Ressourçons-nous!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="height: 410px;">
+                        <img class="img-fluid" src="{{url('images/post 3.png')}}" alt="Image">
+                        <div class="carousel-caption d-flex flex-column justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h4 class="text-light text-uppercase font-weight-medium mb-3">Tellement beau</h4>
+                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">pour la jeunesse</h3>
                                 <a href="" class="btn btn-light py-2 px-3">Ressourçons-nous!</a>
                             </div>
                         </div>

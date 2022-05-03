@@ -38,20 +38,24 @@
             </div>
         </div>
 
-
-        <div class="row px-xl-5 pb-3 position-relative text-center text-md-right text-white mb-1 py-5 px-5">
-            <!-- @foreach (\App\Models\Book::all() as $book)
-            <div class="col-lg-2 col-md-6 col-sm-6 col-12">
-                <div class="product-categories-wrap product-categories-border mb-15">
-                    <blockquote class="blockquote" style="text-align: center;">
-                    <img class="margin-right-15 width-hight" width="95" height="95" align="left" src="{{url('images/books/'.$book->image)}}"
-                    title="{{ $book->title }}">
-                    </blockquote>
+        <div class="container">
+            <div class="row px-xl-5 pb-3 position-relative text-center text-md-right text-white mb-1 py-5 px-5">
+                @foreach ($books as $book)
+                <div class="col-lg-2 col-md-6 col-sm-6 col-12">
+                    <div class="product-categories-wrap product-categories-border mb-15">
+                        <blockquote class="blockquote" style="text-align: center;">
+                        <a href="{{ route('book.detail', $book->id)}}">
+                            <img class="margin-right-15 width-hight" width="95" height="95" align="left" src="{{url('images/books/'.$book->image)}}"
+                            title="{{ $book->title }}">
+                        </a>
+                        </blockquote>
+                    </div>
                 </div>
+                @endforeach
+                
             </div>
-            @endforeach -->
+            
         </div>
-
     </div>
     <!-- Featured End -->
 

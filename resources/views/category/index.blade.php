@@ -1,4 +1,4 @@
-@extends('admin.header')
+@extends('admin.sidebar')
 
 @section('content')
     <div class="container">

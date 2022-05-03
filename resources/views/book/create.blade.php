@@ -1,11 +1,11 @@
-@extends('admin.header')
+@extends('admin.sidebar')
 
 @section('content')
     
     <div class="container">
         <h3 class="my-5">Create a new</h3>
 
-        <form class="row g-3" method="POST" action="{{ route('books.store')}}">
+        <form class="row g-3" method="POST" action="{{ route('books.store')}}" enctype="multipart/form-data">
           @csrf
             <div class="col-md-4">
               <label>Titre</label>
