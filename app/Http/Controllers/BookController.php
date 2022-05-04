@@ -9,6 +9,10 @@ use App\Models\Author;
 use App\Models\Category;
 use App\Http\Requests\StoreBookRequest;
 
+
+use Intervention\Image\Facades\Image as Image;
+use Illuminate\Support\Str;
+
 class BookController extends Controller
 {
     /**
@@ -55,10 +59,17 @@ class BookController extends Controller
         $book->edition_home = $request->edition_home;
         $book->edition_date = $request->edition_date;
 
-        $book->image = $request->input('image');
-        
-        if ($book->image = $request->hasFile('image')){
-            $book->image = $request->file('image')->store('images/books');
+        if ($file = $request->file('image')) {
+
+            $optimizeImage = Image::make($file);
+            $optimizePath = public_path() . '/images/books/';
+            $image = time() . $file->getClientOriginalExtension();
+            $optimizeImage->resize(200, 200, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $optimizeImage->save($optimizePath . $image, 90);
+
+            $book->image = $image;
         }
 
         $book->category_id = $request->category_id;
@@ -104,9 +115,20 @@ class BookController extends Controller
         $book->year_publication = $request->year_publication;
         $book->edition_home = $request->edition_home;
         $book->edition_date = $request->edition_date;
-        if ($request->hasFile('image')){
-            $book->image = $request->file('image')->store('images/books');
+        
+        if ($file = $request->file('image')) {
+
+            $optimizeImage = Image::make($file);
+            $optimizePath = public_path() . '/images/books/';
+            $image = time() . $file->getClientOriginalExtension();
+            $optimizeImage->resize(200, 200, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $optimizeImage->save($optimizePath . $image, 90);
+
+            $book->image = $image;
         }
+
 
         $book->save();
         return redirect()->route('books.index')->with('info', 'Livre sauvegardé avec succès');

@@ -69,3 +69,9 @@ Route::put('/admin/authors/{author:id}/update', [AuthorController::class, 'updat
 Route::get('/admin/exemplaires', [ExamplaireController::class, 'index'])->middleware('admin')->name('exemplaires.index');
 Route::get('/admin/exemplaires/create', [ExamplaireController::class, 'create'])->middleware('admin')->name('exemplaires.create');
 Route::post('/admin/exemplaires/store', [ExamplaireController::class, 'store'])->middleware('admin')->name('exemplaires.store');
+
+ //Recherche book
+ Route::get('/books/{category:id}/recherche', [MainController::class, 'recherche'])->name('book.recherche');
+
+//detail
+Route::get('/books/detail/{book:id}/', [MainController::class, 'detail'])->name('book.detail');

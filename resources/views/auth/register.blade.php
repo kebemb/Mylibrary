@@ -1,11 +1,11 @@
-@extends('base')
+@extends('incs.backendnavbar')
 
 @section('content')
 <div class="container">
-    <h1 class="text-center my-5">Page d'incription</h1>
+    <h1 class="text-center">Page d'incription</h1>
     <div class="row justify-content-center mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 

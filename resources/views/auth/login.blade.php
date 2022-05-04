@@ -1,9 +1,9 @@
-@extends('base')
+@extends('incs.backendnavbar')
 
 @section('content')
 <div class="container">
-    <h1 class="text-center my-5">Page de connexion</h1>
-    <div class="row justify-content-center mt-5">
+    <h1 class="text-center">Page de connexion</h1>
+    <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>

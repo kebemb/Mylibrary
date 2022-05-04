@@ -17,18 +17,28 @@ class MainController extends Controller
     {
         $categories = Category::all();
         $books = Book::orderBy('created_at', 'desc');
-        $books = $books->paginate(10);
+        $books = $books->paginate(2);
         return view('home', [
             'categories' => $categories],[
                 'books' => $books]);
     }
 
-    // public function show($livres)
-    // {
-    //     $category = Category::where('livres', $livres)->firstOrFail();
-    //     dd($category);
-    //     return view('category', [
-    //         'category' => $category
-    //     ]);
-    // }
+    public function recherche(Request $request,Category $category)
+    {
+
+        $booksres = Book::join('categories', 'books.category_id', '=','categories.id' )
+                        ->where('categories.id', $category->id)
+                        ->get();
+                        return view('library', [
+                                    'booksres' => $booksres]);
+        
+    }
+
+    public function detail(Request $request,Book $book)
+    {
+        $booksres = Book::where('id', $book->id)->get();
+        return view('detail', [
+            'booksres' => $booksres]);
+        
+    }
 }

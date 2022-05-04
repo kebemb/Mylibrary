@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Emprunt;
+use App\Models\Student;
 use App\Models\Examplaire;
 use App\Models\Book;
 use App\Http\Controllers\Controller;
@@ -32,7 +33,7 @@ class EmpruntController extends Controller
     public function create()
     {
         return view('emprunt.create', [
-            'students' => student::latest()->get(),
+            'students' => Student::latest()->get(),
             'books' => book::where('status', true)->get(),
         ]);
     }
@@ -50,7 +51,7 @@ class EmpruntController extends Controller
         $emprunt = Emprunt::create($request->validated() + [
             'student_id' => $request->student_id,
             'book_id' => $request->book_id,
-            'emprunt_date' => $issue_date,
+            'emprunt_date' => $emprunt_date,
             'return_date' => $return_date,
             'status' => 1 // 1 veut dire true c'est à dire emprunté
         ]);

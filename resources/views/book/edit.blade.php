@@ -1,11 +1,11 @@
-@extends('admin.header')
+@extends('admin.sidebar')
 
 @section('content')
     
     <div class="container">
         <h3 class="my-5">Edit</h3>
 
-        <form class="row g-3" method="POST" action="{{ route('books.update', $book->id)}}">
+        <form class="row g-3" method="POST" action="{{ route('books.update', $book->id)}}" enctype="multipart/form-data">
             @method("PUT")
             @csrf
             <div class="col-md-4">
