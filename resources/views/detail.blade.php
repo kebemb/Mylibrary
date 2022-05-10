@@ -25,7 +25,7 @@
                    <h5>Maison d'édition: {{$book->edition_home}}</h5>
                    <h5>Date d'édition: {{$book->edition_date}}</h5>
                 </dd>
-                <button class="btn btn-secondary" style=" border-radius:35px;background-color: #772953 ;color:white;width: 100%;">Enprunter</button>
+                <a href="{{ route('emprunts.create')}}" type="button" class="btn btn-secondary" style=" border-radius:35px;background-color: #772953 ;color:white;width: 100%;">Enprunter</a>
             </dl>    
         @endforeach
         </div>

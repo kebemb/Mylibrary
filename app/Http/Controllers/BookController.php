@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\Examplaire;
 use App\Http\Requests\StoreBookRequest;
 
 
@@ -74,6 +75,10 @@ class BookController extends Controller
 
         $book->category_id = $request->category_id;
         $book->save();
+        $examplaire = new Examplaire;
+        $examplaire->nombre_exemplaires = 1;
+        $examplaire->book_id = $book->id;
+        $examplaire->save();
         return redirect()->route('books.index')->with('info', 'Livre sauvegardé avec succès');
     }
 

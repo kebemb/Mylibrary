@@ -44,7 +44,7 @@ class EmpruntController extends Controller
      * @param  \App\Http\Requests\StoreEmpruntRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEmpruntRequest $request)
+    public function store(Request $request)
     {
         $emprunt_date = date('Y-m-d');
         $return_date = date('Y-m-d', strtotime("+" . $request->return_date) . " days");
@@ -57,10 +57,16 @@ class EmpruntController extends Controller
         ]);
 
         $emprunt->save();
+     
         $exemplaire = Examplaire::find($request->book_id);
+        var_dump($exemplaire);
+        die();
+
         $exemplaire->nombre_exemplaires = $exemplaire->nombre_exemplaires - 1;
         $exemplaire->save();
 
+
+        
         $book =Book::find($exemplaire->book_id);
         if($book->examplaire->nombre_exemplaires == 0) {
             $book->status = 0; // 0 veut dire que le livre n'est pas disponible
@@ -69,7 +75,7 @@ class EmpruntController extends Controller
         }
         $book->save();
 
-        return redirect()->route('emprunts')->with('info', 'Emprunt bien pris en compte');
+        return redirect()->route('home')->with('info', 'Emprunt bien pris en compte');
     }
 
     /**

@@ -9,6 +9,8 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExamplaireController;
+use App\Http\Controllers\EmpruntController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +77,9 @@ Route::post('/admin/exemplaires/store', [ExamplaireController::class, 'store'])-
 
 //detail
 Route::get('/books/detail/{book:id}/', [MainController::class, 'detail'])->name('book.detail');
+
+
+//emprunt
+Route::get('/admin/emprunts', [EmpruntController::class, 'index'])->middleware('admin')->name('emprunts');
+Route::get('emprunts/create', [EmpruntController::class, 'create'])->middleware('admin')->name('emprunts.create');
+Route::post('emprunts/store', [EmpruntController::class, 'store'])->middleware('admin')->name('emprunts.store');
