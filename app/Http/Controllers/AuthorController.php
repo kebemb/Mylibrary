@@ -49,7 +49,7 @@ class AuthorController extends Controller
         $author->email = $request->email;
 
         $author->save();
-        return redirect()->route(author.index)->with("info", "L'auteur sauvegardé avec succès");
+        return redirect()->route('author.index')->with("info", "L'auteur sauvegardé avec succès");
     }
 
     /**
