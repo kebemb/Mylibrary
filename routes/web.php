@@ -83,3 +83,6 @@ Route::get('/books/detail/{book:id}/', [MainController::class, 'detail'])->name(
 Route::get('/admin/emprunts', [EmpruntController::class, 'index'])->middleware('admin')->name('emprunts');
 Route::get('emprunts/create', [EmpruntController::class, 'create'])->middleware('admin')->name('emprunts.create');
 Route::post('emprunts/store', [EmpruntController::class, 'store'])->middleware('admin')->name('emprunts.store');
+
+Route::get('emprunter/{book:id}/book', [MainController::class, 'emprunter'])->middleware('auth')->name('front.emprunter');
+Route::post('emprunts/store', [EmpruntController::class, 'store'])->middleware('auth')->name('front.emprunter.store');

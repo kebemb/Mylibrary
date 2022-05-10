@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEmpruntRequest;
 use App\Http\Requests\UpdateEmpruntRequest;
 use \Illuminate\Http\Request;
+use Auth;
 
 class EmpruntController extends Controller
 {
@@ -47,9 +48,9 @@ class EmpruntController extends Controller
     public function store(Request $request)
     {
         $emprunt_date = date('Y-m-d');
-        $return_date = date('Y-m-d', strtotime("+" . $request->return_date) . " days");
-        $emprunt = Emprunt::create($request->validated() + [
-            'student_id' => $request->student_id,
+        $return_date = $request->return_date;
+        $emprunt = Emprunt::create([
+            'user_id' => Auth::user()->id,
             'book_id' => $request->book_id,
             'emprunt_date' => $emprunt_date,
             'return_date' => $return_date,

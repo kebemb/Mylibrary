@@ -47,9 +47,11 @@ class AuthorController extends Controller
         $author->first_name = $request->first_name;
         $author->last_name = $request->last_name;
         $author->email = $request->email;
+        $author->country = $request->country;
+        $author->address = $request->address;
 
         $author->save();
-        return redirect()->route('author.index')->with("info", "L'auteur sauvegardé avec succès");
+        return redirect()->route('authors.index')->with("info", "L'auteur sauvegardé avec succès");
     }
 
     /**
@@ -91,9 +93,11 @@ class AuthorController extends Controller
         $author->first_name = $request->first_name;
         $author->last_name = $request->last_name;
         $author->email = $request->email;
+        $author->country = $request->country;
+        $author->address = $request->address;
 
         $author->save();
-        return redirect()->route('author.index')->with("info", "L'auteur mis à jour avec succès");
+        return redirect()->route('authors.index')->with("info", "L'auteur mis à jour avec succès");
     }
 
     /**

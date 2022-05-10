@@ -14,9 +14,9 @@ class Emprunt extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function student(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Student::class, 'student_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     /**

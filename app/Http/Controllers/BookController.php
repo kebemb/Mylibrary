@@ -74,6 +74,7 @@ class BookController extends Controller
         }
 
         $book->category_id = $request->category_id;
+        $book->author_id = $request->author_id;
         $book->save();
         $examplaire = new Examplaire;
         $examplaire->nombre_exemplaires = 1;

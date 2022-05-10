@@ -15,8 +15,8 @@ class CreateEmpruntsTable extends Migration
     {
         Schema::create('emprunts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('book_id');
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
             $table->timestamp('emprunt_date');

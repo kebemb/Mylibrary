@@ -41,4 +41,10 @@ class MainController extends Controller
             'booksres' => $booksres]);
         
     }
+
+    // cette permet de se rediger vers la page d'emprunt
+    public function emprunter(Request $request, Book $book) {
+        $book = Book::where('id', $book->id)->get();
+        return view('front.emprunt', ['book' => $book]);
+    }
 }

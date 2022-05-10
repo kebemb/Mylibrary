@@ -3,7 +3,7 @@
 @section('content')
     
     <div class="container">
-        <h3 class="my-5">Create a new</h3>
+        <h3 class="my-5">Création d'un nouveau livre</h3>
 
         <form class="row g-3" method="POST" action="{{ route('books.store')}}" enctype="multipart/form-data">
           @csrf
@@ -66,6 +66,15 @@
                 <option>Veuillez choisir</option>
                 @foreach($nomcategories as $nomcategorie)
                     <option value="{{$nomcategorie->id}}">{{ $nomcategorie->name }}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label>Nom de l'auteur:</label>
+                <select data-placeholder="Veuillez selectionner" name="author_id" id="author_id" class="form-control select2 col-md-7 col-xs-12">
+                <option>Veuillez choisir</option>
+                @foreach($authors as $author)
+                    <option value="{{$author->id}}">{{ $author->first_name }} {{ $author->last_name }}</option>
                 @endforeach
                 </select>
             </div>

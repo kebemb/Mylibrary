@@ -1,19 +1,19 @@
-@extends('admin.header')
+@extends('admin.sidebar')
 
 @section('content')
     <div class="container">
-        <h1 class="text-center my-5">Authors</h1>
+        <h1 class="text-center my-5">Liste des auteurs</h1>
         <div class="d-flex justify-content-center">
-            <a class="btn btn-info my-3" href="{{ route('authors.create')}}">Add an Author</a>
+            <a class="btn btn-info my-3" href="{{ route('authors.create')}}">Ajouter un auteur</a>
         </div>
         <table class="table">
             <thead>
               <tr class="table-active">
                 <th scope="col">ID</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
                 <th scope="col">Email</th>
-                <th scope="col">Country</th>
+                <th scope="col">Pays</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
