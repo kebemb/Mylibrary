@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Emprunt extends Model
 {
+    protected $fillable = ['user_id', 'book_id', 'emprunt_date', 'return_date', 'status', 'return_day'];
     use HasFactory;
 
     /**
@@ -14,19 +15,19 @@ class Emprunt extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user(): BelongsTo
+    public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class);
     }
 
     /**
-     * Get the book that owns the book_issue
+     * Get the book that owns the book
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function book(): BelongsTo
+    public function book()
     {
-        return $this->belongsTo(Book::class, 'book_id', 'id');
+        return $this->belongsTo(Book::class);
     }
 
 

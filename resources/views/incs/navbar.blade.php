@@ -103,54 +103,9 @@
                             <a class="nav-item nav-link" href="{{ route('login')}}">Me connecter</a>
 
                         @endif
-
                     </div>
                 </div>
             </nav>
-            <div id="header-carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" style="height: 410px;">
-                        <img class="img-fluid" src="{{url('images/kb.jpg')}}" alt="Image">
-                        <div class="carousel-caption d-flex flex-column justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h4 class="text-light text-uppercase font-weight-medium mb-3">Votre librairie</h4>
-                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">ouverte 7j/7j</h3>
-                                <a href="" class="btn btn-light py-2 px-3">Et 24H/24H</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" style="height: 410px;">
-                        <img class="img-fluid" src="{{url('images/pro.png')}}" alt="Image">
-                        <div class="carousel-caption d-flex flex-column justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h4 class="text-light text-uppercase font-weight-medium mb-3">Le numérique au service</h4>
-                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">de la jeunesse</h3>
-                                <a href="" class="btn btn-light py-2 px-3">Ressourçons-nous!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item" style="height: 410px;">
-                        <img class="img-fluid" src="{{url('images/post 3.png')}}" alt="Image">
-                        <div class="carousel-caption d-flex flex-column justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h4 class="text-light text-uppercase font-weight-medium mb-3">Tellement beau</h4>
-                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">pour la jeunesse</h3>
-                                <a href="" class="btn btn-light py-2 px-3">Ressourçons-nous!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
-                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                        <span class="carousel-control-prev-icon mb-n2"></span>
-                    </div>
-                </a>
-                <a class="carousel-control-next" href="#header-carousel" data-slide="next">
-                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                        <span class="carousel-control-next-icon mb-n2"></span>
-                    </div>
-                </a>
-            </div>
         </div>
     </div>
 </div>

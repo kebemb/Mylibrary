@@ -12,6 +12,9 @@
                 <th scope="col">ID</th>
                 <th scope="col">Image</th>
                 <th scope="col">Titre</th>
+                <th scope="col">Catégorie</th>
+                <th scope="col">Auteur(s)</th>
+                <th scope="col">Nombre exemplaire</th>
                 <th scope="col">Description</th>
                 <th scope="col">Action</th>
               </tr>
@@ -25,6 +28,9 @@
                         title="{{ $book->title }}">
                     </td>
                     <td>{{ $book->title}}</td>
+                    <td>{{ $book->category->name}}</td>
+                    <td> {{ $book->author->first_name}} {{ $book->author->last_name}}</td>
+                    <td> {{ $book->exemplaire[0]->nombre_exemplaires}}
                     <td>{{ $book->description}}</td>
                     <td class="d-flex">
                         <a href="{{ route('books.edit', $book->id)}}" class="btn btn-warning mx-3">Editer</a>

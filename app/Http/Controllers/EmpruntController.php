@@ -57,26 +57,23 @@ class EmpruntController extends Controller
             'status' => 1 // 1 veut dire true c'est à dire emprunté
         ]);
 
-        $emprunt->save();
-     
-        $exemplaire = Examplaire::find($request->book_id);
-        var_dump($exemplaire);
-        die();
+        $exemplaire = Examplaire::select('*')->where('book_id', $emprunt->book_id)->first();
+        if ($exemplaire->nombre_exemplaires > 0) {
 
-        $exemplaire->nombre_exemplaires = $exemplaire->nombre_exemplaires - 1;
-        $exemplaire->save();
+            $exemplaire->nombre_exemplaires = $exemplaire->nombre_exemplaires - 1;
+            $exemplaire->save();
 
+            $book =Book::find($exemplaire->book_id);
+            $book->status = 1; 
+            
+            $book->save();
+            $emprunt->save();
 
-        
-        $book =Book::find($exemplaire->book_id);
-        if($book->examplaire->nombre_exemplaires == 0) {
-            $book->status = 0; // 0 veut dire que le livre n'est pas disponible
+            return redirect()->route('home')->with('info', 'Emprunt bien pris en compte');
         } else {
-            $book->status = 1; //1 veut dire que le livre est disponible
+            return back()->with('error', 'Ce livre n\'est pas disponible pour un emprunt');
         }
-        $book->save();
 
-        return redirect()->route('home')->with('info', 'Emprunt bien pris en compte');
     }
 
     /**

@@ -13,6 +13,7 @@ class Book extends Model
         'title',
         'description',
         'image',
+        'author_id',
         'year_publication',
         'edition_home',
         'edition_date',
@@ -24,8 +25,9 @@ class Book extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function author() {
-        return $this->belongToMany(Author::class, 'book_authors', 'author_id', 'book_id');
+    public function author() 
+    {
+        return $this->belongsTo(Author::class);
     }
 
     /**
@@ -33,12 +35,18 @@ class Book extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function category(): BelongsTo
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function exemplaire() {
-        return $this->hasMany(Examplaire::class, 'book_id');
+    public function exemplaire() 
+    {
+        return $this->hasMany(Examplaire::class);
+    }
+
+    public function emprunt() 
+    {
+        return $this->hasMany(Emprunt::class);
     }
 }

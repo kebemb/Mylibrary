@@ -76,8 +76,8 @@ class BookController extends Controller
         $book->category_id = $request->category_id;
         $book->author_id = $request->author_id;
         $book->save();
-        $examplaire = new Examplaire;
-        $examplaire->nombre_exemplaires = 1;
+        $examplaire = Examplaire::select('*')->where('book_id', $book->id)->first();
+        $examplaire->nombre_exemplaires = $request->nombre_exemplaires;
         $examplaire->book_id = $book->id;
         $examplaire->save();
         return redirect()->route('books.index')->with('info', 'Livre sauvegardé avec succès');
@@ -103,7 +103,8 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         $nomcategories = Category::all();
-        return view('book.edit', compact('book','nomcategories'));
+        $authors = Author::all();
+        return view('book.edit', compact('book','nomcategories', 'authors'));
     }
 
     /**
@@ -135,7 +136,10 @@ class BookController extends Controller
             $book->image = $image;
         }
 
+        $examplaire = Examplaire::select('*')->where('book_id', $book->id)->first();
+        $examplaire->nombre_exemplaires = $request->nombre_exemplaires;
 
+        $examplaire->save();
         $book->save();
         return redirect()->route('books.index')->with('info', 'Livre sauvegardé avec succès');
     }

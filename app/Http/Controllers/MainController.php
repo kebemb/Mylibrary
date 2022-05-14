@@ -17,7 +17,7 @@ class MainController extends Controller
     {
         $categories = Category::all();
         $books = Book::orderBy('created_at', 'desc');
-        $books = $books->paginate(2);
+        $books = $books->paginate(10);
         return view('home', [
             'categories' => $categories],[
                 'books' => $books]);
@@ -26,8 +26,7 @@ class MainController extends Controller
     public function recherche(Request $request,Category $category)
     {
 
-        $booksres = Book::join('categories', 'books.category_id', '=','categories.id' )
-                        ->where('categories.id', $category->id)
+        $booksres = Book::where('category_id', $category->id)
                         ->get();
                         return view('library', [
                                     'booksres' => $booksres]);

@@ -9,7 +9,7 @@
               
               <div class="col-md-6">
                 <label>Livre</label>
-                  <select data-placeholder="veuillez selectionner" name="book_id" id="book_id" class="form-control select2 col-md-12 col-xs-12" disabled>
+                  <select data-placeholder="veuillez selectionner" name="book_id" id="book_id" class="form-control select2 col-md-12 col-xs-12" readonly>
                   @foreach($book as $b)
                       <option value="{{$b->id}}" <?php if($b->id != null) echo "selected";?>>{{ $b->title }}</option>
                   @endforeach

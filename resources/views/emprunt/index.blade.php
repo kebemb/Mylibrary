@@ -10,7 +10,12 @@
             <thead>
               <tr class="table-active">
                 <th scope="col">ID</th>
+                
+                <th scope="col">Livre</th>
+                <th scope="col">Auteur du livre</th>
+                <th scope="col"> Emprunté par</th>
                 <th scope="col">Date Emprunt</th>
+                <th scope="col"> Date fin emprunt </th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -18,7 +23,11 @@
               @foreach ($emprunts as $emprunt)
               <tr>
                     <th>{{ $emprunt->id}}</th>
+                    <td>{{ $emprunt->book->title}}</td>
+                    <td>{{ $emprunt->book->author->first_name}} {{ $emprunt->book->author->last_name}}</td>
+                    <td>{{ $emprunt->user->name}}</td>
                     <td>{{ $emprunt->emprunt_date}}</td>
+                    <td>{{ $emprunt->return_date}}</td>
 
                     <td class="d-flex">
                         <a href="#" class="btn btn-warning mx-3">Editer</a>

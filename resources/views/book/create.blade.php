@@ -78,6 +78,15 @@
                 @endforeach
                 </select>
             </div>
+            <div class="col-md-4">
+              <label>Nombre exemplaires</label>
+              <input type="number" id="nombre_exemplaires" class="form-control @error('nombre_exemplaires') is-invalid @enderror"  name="nombre_exemplaires">
+              @error('nombre_exemplaires')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
 
             <div class="col-12">
               <button class="btn btn-dark" type="submit">Creer</button>

@@ -70,6 +70,25 @@
                 @endforeach
               </select>
             </div>
+            <div class="col-md-4">
+              <label>Nom de l'auteur:</label>
+              <select data-placeholder="Veuillez selectionner" name="author_id" id="author_id" class="form-control select2 col-md-7 col-xs-12">
+              <option>Veuillez choisir</option>
+              @foreach($authors as $author)
+                  <option value="{{$author->id}}" {{ $book->author_id == $author->id ? 'selected' : "" }}>{{ $author->first_name }} {{ $author->last_name }}</option>
+              @endforeach
+              </select>
+          </div>
+          <div class="col-md-4">
+            <label>Nombre exemplaires</label>
+            <input type="number" id="nombre_exemplaires" class="form-control @error('nombre_exemplaires') is-invalid @enderror"  name="nombre_exemplaires"
+            value="{{ $book->exemplaire[0]->nombre_exemplaires }}">
+            @error('nombre_exemplaires')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
 
             <div class="col-12">
               <button class="btn btn-dark" type="submit">Creer</button>
