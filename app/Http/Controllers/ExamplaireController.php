@@ -19,7 +19,7 @@ class ExamplaireController extends Controller
     public function index()
     {
         //
-        $exemplaires = Examplaire::OrderBy('created_by', 'desc')->paginate(10);
+        $exemplaires = Examplaire::OrderBy('created_at', 'desc')->paginate(10);
         return view('exemplaire.index', compact('exemplaires'));
     }
 

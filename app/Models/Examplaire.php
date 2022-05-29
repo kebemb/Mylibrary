@@ -12,4 +12,9 @@ class Examplaire extends Model
         'nombre_exemplaires',
         'book_id',
     ];
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }

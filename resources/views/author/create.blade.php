@@ -9,7 +9,7 @@
           @csrf
             <div class="col-md-4">
               <label>First Name</label>
-              <input type="text" id="first_name" class="form-control-plaintext @error('first_name') is-invalid @enderror"  name="first_name">
+              <input type="text" id="first_name" class="form-control @error('first_name') is-invalid @enderror"  name="first_name">
               @error('first_name')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -19,7 +19,7 @@
 
             <div class="col-md-4">
                 <label> Last Name</label><br>
-                <input type="text" id="last_name" class="form-control-plaintext @error('last_name') is-invalid @enderror"  name="last_name">
+                <input type="text" id="last_name" class="form-control @error('last_name') is-invalid @enderror"  name="last_name">
                 @error('last_name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -31,7 +31,7 @@
 
             <div class="col-md-4">
               <label>Email</label>
-              <input type="email" id="email" class="form-control-plaintext @error('email') is-invalid @enderror"  name="email">
+              <input type="email" id="email" class="form-control @error('email') is-invalid @enderror"  name="email">
               @error('email')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -41,7 +41,7 @@
 
             <div class="col-md-4">
               <label>Pays</label>
-              <input type="text" id="country" class="form-control-plaintext @error('country') is-invalid @enderror"  name="country">
+              <input type="text" id="country" class="form-control @error('country') is-invalid @enderror"  name="country">
               @error('country ')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
             </div>
             <div class="col-md-4">
               <label>Adresse</label>
-              <textarea class="form-control-plaintext" id="address"  name="address" rows="3"></textarea>
+              <textarea class="form-control" id="address"  name="address" rows="3"></textarea>
             </div>
             <div class="col-12">
               <button class="btn btn-dark" type="submit">Creer</button>

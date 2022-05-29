@@ -76,7 +76,7 @@ class BookController extends Controller
         $book->category_id = $request->category_id;
         $book->author_id = $request->author_id;
         $book->save();
-        $examplaire = Examplaire::select('*')->where('book_id', $book->id)->first();
+        $examplaire = new Examplaire;
         $examplaire->nombre_exemplaires = $request->nombre_exemplaires;
         $examplaire->book_id = $book->id;
         $examplaire->save();

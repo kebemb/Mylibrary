@@ -90,7 +90,12 @@ class CategoryController extends Controller
      */
     public function delete(Category $category)
     {
-        $category->delete();
-        return redirect()->route('categories.index')->with('warning', "La catégorie a été supprimée!");
+        if ($category->books->count() > 0){
+            return back()->with('error', "impossible de supprimer une catégorie qui contient des livres");
+        } else {
+            $category->delete();
+            return redirect()->route('categories.index')->with('info', "La catégorie a été supprimée!");
+        }
+
     }
 }

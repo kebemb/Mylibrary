@@ -4,7 +4,7 @@
     <div class="container">
         <h1 class="text-center my-5">Livres</h1>
         <div class="d-flex justify-content-center">
-            <a class="btn btn-info my-3" href="{{ route('books.create')}}">Add new book</a>
+            <a class="btn btn-info my-3" href="{{ route('books.create')}}">Ajouter un nouveau livre</a>
         </div>
         <table class="table">
             <thead>
