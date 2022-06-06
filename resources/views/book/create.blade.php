@@ -89,7 +89,7 @@
             </div>
 
             <div class="col-12">
-              <button class="btn btn-dark" type="submit">Creer</button>
+              <button class="btn btn-dark" type="submit">Créer</button>
             </div>
           </form>
     </div>

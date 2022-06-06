@@ -106,8 +106,14 @@ class AuthorController extends Controller
      * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Author $author)
+    public function delete(Author $author)
     {
-        //
+        
+        if ($author->books->count() > 0){
+            return back()->with('error', "impossible de supprimer cet auteur !");
+        } else {
+        $author->delete();
+        return redirect()->route('authors.index')->with('warning', "L'auteur a été supprimé!");
+        }
     }
 }

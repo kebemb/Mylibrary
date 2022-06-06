@@ -3,7 +3,7 @@
 @section('content')
     
     <div class="container">
-        <h3 class="my-5"> Update a category</h3>
+        <h3 class="my-5"> Modifier une catégorie</h3>
         <form class="row g-3"  method="POST" action="{{ route('categories.update', $category->id)}}">
             @method("PUT")
           @csrf
@@ -17,7 +17,7 @@
               @enderror
             </div>
             <div class="col-12">
-              <button class="btn btn-dark" type="submit">Register modification</button>
+              <button class="btn btn-dark" type="submit">Sauvegarder la modification</button>
             </div>
           </form>
     </div>

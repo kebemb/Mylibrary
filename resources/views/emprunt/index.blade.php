@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center my-5">Emprunt</h1>
+        <h1 class="text-center my-5">Consultation Emprunt</h1>
         <div class="d-flex justify-content-center">
-            <a class="btn btn-info my-3" href="#">Add new category</a>
+            {{-- <a class="btn btn-info my-3" href="#">Add new category</a> --}}
         </div>
         <table class="table">
             <thead>

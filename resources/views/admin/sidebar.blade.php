@@ -62,7 +62,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
-            <span class="nav-link-text ms-1">Exemplaire</span>
+            <span class="nav-link-text ms-1">Exemplaires</span>
           </a>
         </li>
         {{-- <li class="nav-item">
@@ -78,7 +78,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
             </div>
-            <span class="nav-link-text ms-1">Authors</span>
+            <span class="nav-link-text ms-1">Auteurs</span>
           </a>
         </li>
         <li class="nav-item">

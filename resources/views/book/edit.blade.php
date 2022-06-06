@@ -3,7 +3,7 @@
 @section('content')
     
     <div class="container">
-        <h3 class="my-5">Edit</h3>
+        <h3 class="my-5">Editer un livre</h3>
 
         <form class="row g-3" method="POST" action="{{ route('books.update', $book->id)}}" enctype="multipart/form-data">
             @method("PUT")
@@ -91,7 +91,7 @@
           </div>
 
             <div class="col-12">
-              <button class="btn btn-dark" type="submit">Creer</button>
+              <button class="btn btn-dark" type="submit">Sauvegarder</button>
             </div>
           </form>
     </div>

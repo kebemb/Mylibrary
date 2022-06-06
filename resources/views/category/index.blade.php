@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center my-5">Categories</h1>
+        <h1 class="text-center my-5">Catégories</h1>
         <div class="d-flex justify-content-center">
             <a class="btn btn-info my-3" href="{{ route('categories.create')}}">Ajouter une nouvelle catégorie</a>
         </div>

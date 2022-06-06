@@ -63,11 +63,11 @@ Route::put('/admin/students/{student:id}/update', [StudentController::class, 'up
 Route::get('/admin/authors', [AuthorController::class, 'index'])->middleware('admin')->name('authors.index');
 Route::get('/admin/authors/create', [AuthorController::class, 'create'])->middleware('admin')->name('authors.create');
 Route::post('/admin/authors/store', [AuthorController::class, 'store'])->middleware('admin')->name('authors.store');
-Route::delete('/admin/authors/{author:id}/delete', [AuthorController::class, 'destroy'])->middleware('admin')->name('authors.delete');
+Route::delete('/admin/authors/{author:id}/delete', [AuthorController::class, 'delete'])->middleware('admin')->name('authors.delete');
 Route::get('/admin/authors/{author:id}/edit', [AuthorController::class, 'edit'])->middleware('admin')->name('authors.edit');
 Route::put('/admin/authors/{author:id}/update', [AuthorController::class, 'update'])->middleware('admin')->name('authors.update');
 
-//authors
+//copies
 Route::get('/admin/exemplaires', [ExamplaireController::class, 'index'])->middleware('admin')->name('exemplaires.index');
 Route::get('/admin/exemplaires/create', [ExamplaireController::class, 'create'])->middleware('admin')->name('exemplaires.create');
 Route::post('/admin/exemplaires/store', [ExamplaireController::class, 'store'])->middleware('admin')->name('exemplaires.store');
