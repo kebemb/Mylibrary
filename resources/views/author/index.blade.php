@@ -6,6 +6,22 @@
         <div class="d-flex justify-content-center">
             <a class="btn btn-info my-3" href="{{ route('authors.create')}}">Ajouter un auteur</a>
         </div>
+
+        @if(session()->has('info'))
+            <div class="container">
+                <div class="alert alert-dismissible alert-success fade show" role="alert">
+                    {{ session('info') }}
+                </div>
+            </div>
+            @elseif(session()->has('error'))
+            <div class="container">
+                <div class="alert alert-dismissible alert-danger fade show" role="alert">
+                    {{ session('error') }}
+                </div>
+            </div>
+        @endif
+
+        
         <table class="table">
             <thead>
               <tr class="table-active">

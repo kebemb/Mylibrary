@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAuthorIdToBookTable extends Migration
+class AddTelephoneToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddAuthorIdToBookTable extends Migration
      */
     public function up()
     {
-        Schema::table('books', function (Blueprint $table) {
-            $table->unsignedBigInteger('author_id');
-            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+        Schema::table('users', function (Blueprint $table) {
+            $table->text('address');
+            $table->bigInteger('tel');
         });
     }
 
@@ -26,7 +26,7 @@ class AddAuthorIdToBookTable extends Migration
      */
     public function down()
     {
-        Schema::table('books', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

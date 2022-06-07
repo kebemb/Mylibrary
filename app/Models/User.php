@@ -24,7 +24,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'role',
+        'address',
+        'tel'
     ];
 
     /**
@@ -47,6 +49,6 @@ class User extends Authenticatable
     ];
 
     public function emprunt(){
-        return hasMany(Emprunt::class);
+        return $this->hasMany(Emprunt::class);
     }
 }

@@ -44,6 +44,10 @@ class Book extends Model
     {
         return $this->hasMany(Examplaire::class);
     }
+    public function bookAuthor() 
+    {
+        return $this->hasMany(BookAuthor::class);
+    }
 
     public function emprunt() 
     {

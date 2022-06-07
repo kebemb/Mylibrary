@@ -19,7 +19,9 @@ class AdminSeeder extends Seeder
             'email' => 'admin@admin.com',
             'name' => 'Admin',
             'password' => Hash::make('toor'),
-            'role' => User::ADMIN_ROLE
+            'role' => User::ADMIN_ROLE,
+            'address' => 'fffffffffffffffffffffffffffffffffffffff',
+            'tel' => '0752213100'
         ]);
     }
 }

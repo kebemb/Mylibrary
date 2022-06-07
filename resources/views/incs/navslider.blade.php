@@ -81,7 +81,6 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{{route('home')}}" class="nav-item nav-link active"> <i class="fas fa-home"></i> Accueil</a>
-                        <a href="#" class="nav-item nav-link">Livres</a>
                     </div>
                     <div class="navbar-nav ml-auto py-0">
                         @if (Auth::user())

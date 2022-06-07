@@ -109,7 +109,13 @@
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+                <div class="col-12">
+                  <a href="{{route('home')}}">
+                  <button class="btn btn-dark" type="submit">
+                       Retour Accueil
+                  </button>
+                 </a>
+              </div>
               </a>
             </li>
             <li class="nav-item dropdown pe-2 d-flex align-items-center">

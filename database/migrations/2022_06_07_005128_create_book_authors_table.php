@@ -30,6 +30,6 @@ class CreateBookAuthorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book__authors');
+        Schema::dropIfExists('book_authors');
     }
 }

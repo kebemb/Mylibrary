@@ -85,11 +85,9 @@ class AuthorController extends Controller
      * @param  \App\Models\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAuthorRequest $request, Author $author)
+    public function update(Request $request, Author $author)
     {
-        //
-        $request->validated();
-        
+    
         $author->first_name = $request->first_name;
         $author->last_name = $request->last_name;
         $author->email = $request->email;
@@ -113,7 +111,7 @@ class AuthorController extends Controller
             return back()->with('error', "impossible de supprimer cet auteur !");
         } else {
         $author->delete();
-        return redirect()->route('authors.index')->with('warning', "L'auteur a été supprimé!");
+        return redirect()->route('authors.index')->with('info', "L'auteur a été supprimé!");
         }
     }
 }

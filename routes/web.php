@@ -78,7 +78,7 @@ Route::post('/admin/exemplaires/{examplaire:id}/edit', [ExamplaireController::cl
 
 //detail
 Route::get('/books/detail/{book:id}/', [MainController::class, 'detail'])->name('book.detail');
-
+Route::get('/emprunts/detail/{emprunt:id}/', [EmpruntController::class, 'detail'])->name('emprunt.detail');
 
 //emprunt
 Route::get('/admin/emprunts', [EmpruntController::class, 'index'])->middleware('admin')->name('emprunts');

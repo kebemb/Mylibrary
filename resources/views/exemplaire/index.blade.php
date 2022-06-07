@@ -9,7 +9,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Livre</th>
-                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -18,11 +17,6 @@
                     <th>{{ $exemplaire->id}}</th>
                     <td>{{ $exemplaire->nombre_exemplaires}}</td>
                     <td>{{ $exemplaire->book->title }}</td>
-                    <td class="d-flex">
-                      <a href="{{ route('exemplaires.edit', $exemplaire->id)}}" class="btn btn-warning mx-3">Editer</a>
-                      <button type="button" class="btn btn-danger">Supprimer</button>
-                     
-                  </td>
               </tr>
               @endforeach
             </tbody>

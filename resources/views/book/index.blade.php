@@ -29,7 +29,11 @@
                     </td>
                     <td>{{ $book->title}}</td>
                     <td>{{ $book->category->name}}</td>
-                    <td> {{ $book->author->first_name}} {{ $book->author->last_name}}</td>
+                    <td>
+                      @foreach($book->bookAuthor as $author)
+                        {{ $author->author->first_name }} {{ $author->author->last_name }}<br/>
+                      @endforeach
+                  </td>
                     <td> {{ $book->exemplaire[0]->nombre_exemplaires}}
                     <td>{{ $book->description}}</td>
                     <td class="d-flex">

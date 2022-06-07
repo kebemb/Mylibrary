@@ -9,6 +9,7 @@ use App\Models\Author;
 use App\Models\Category;
 use App\Models\Examplaire;
 use App\Http\Requests\StoreBookRequest;
+use App\Models\BookAuthor;
 
 
 use Intervention\Image\Facades\Image as Image;
@@ -74,8 +75,14 @@ class BookController extends Controller
         }
 
         $book->category_id = $request->category_id;
-        $book->author_id = $request->author_id;
         $book->save();
+        
+        foreach($request->author_id as $author_id){
+            $bookAuthor = new BookAuthor;
+            $bookAuthor->author_id = $author_id;
+            $bookAuthor->book_id = $book->id;
+            $bookAuthor->save();
+        }
         $examplaire = new Examplaire;
         $examplaire->nombre_exemplaires = $request->nombre_exemplaires;
         $examplaire->book_id = $book->id;
@@ -122,6 +129,7 @@ class BookController extends Controller
         $book->year_publication = $request->year_publication;
         $book->edition_home = $request->edition_home;
         $book->edition_date = $request->edition_date;
+        $book->category_id = $request->category_id;
         
         if ($file = $request->file('image')) {
 
@@ -138,9 +146,19 @@ class BookController extends Controller
 
         $examplaire = Examplaire::select('*')->where('book_id', $book->id)->first();
         $examplaire->nombre_exemplaires = $request->nombre_exemplaires;
+        
+        $bookAuthors = $book->bookAuthor;
+        $bookIds =  $bookAuthors->pluck("book_id");
+
+        foreach($request->author_id as $author_id){
+            BookAuthor::whereIn('book_id', $bookIds)->update([
+                'author_id' => $author_id
+            ]);
+        }
 
         $examplaire->save();
         $book->save();
+
         return redirect()->route('books.index')->with('info', 'Livre sauvegardé avec succès');
     }
     

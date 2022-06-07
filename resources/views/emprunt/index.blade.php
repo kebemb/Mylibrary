@@ -30,8 +30,7 @@
                     <td>{{ $emprunt->return_date}}</td>
 
                     <td class="d-flex">
-                        <a href="#" class="btn btn-warning mx-3">Editer</a>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <a href="{{route('emprunt.detail', $emprunt->id)}}" class="btn btn-warning mx-3">Détails</a>
                        
                     </td>
               </tr>

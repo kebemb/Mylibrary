@@ -71,7 +71,7 @@
             </div>
             <div class="col-md-4">
                 <label>Nom de l'auteur:</label>
-                <select data-placeholder="Veuillez selectionner" name="author_id" id="author_id" class="form-control select2 col-md-7 col-xs-12">
+                <select data-placeholder="Veuillez selectionner" multiple name="author_id[]" id="author_id" class="form-control select2 col-md-7 col-xs-12">
                 <option>Veuillez choisir</option>
                 @foreach($authors as $author)
                     <option value="{{$author->id}}">{{ $author->first_name }} {{ $author->last_name }}</option>

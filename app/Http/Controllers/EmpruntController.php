@@ -105,29 +105,12 @@ class EmpruntController extends Controller
      * @param  \App\Models\Emprunt  $emprunt
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Emprunt $emprunt)
+  
+    public function detail(Request $request,Emprunt $emprunt)
     {
+        $detemprunt = Emprunt::find($emprunt->id);
+        return view('emprunt.detail', [
+            'detemprunt' => $detemprunt]);
         
-        $emprunt->status = 0; //// 0 veut dire false c'est à dire retourné
-        $emprunt->return_day = now();
-        $emprunt->save();
-        $exemplaire = Examplaire::find($emprunt->book_id);
-        $exemplaire->nombre_exemplaires = $exemplaire->nombre_exemplaires + 1;
-        $exemplaire->save();
-
-        $book =Book::find($emprunt->book_id);
-        $book->status = 1; //1 veut dire que le livre est disponible
-        $book->save();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Emprunt  $emprunt
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Emprunt $emprunt)
-    {
-        //
     }
 }
